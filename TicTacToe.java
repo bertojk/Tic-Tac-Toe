@@ -51,7 +51,7 @@ public class TicTacToe extends JPanel implements ActionListener
 		player = 1;
 		score = new int[2];
 
-		font = new Font("Brittanic Bold", Font.HANGING_BASELINE, 36);
+		font = new Font("Brittanic Bold", Font.PLAIN, 36);
 		sp = new SoundPlayer();
 		setting = new Setting();
 
@@ -157,7 +157,7 @@ public class TicTacToe extends JPanel implements ActionListener
 				checkScore(player);
 				if(!warMode)
 				{
-					if(count < size*size)
+					if(count <= size*size)
 					{
 						if(score[0] == score[1])
 						{
@@ -174,7 +174,7 @@ public class TicTacToe extends JPanel implements ActionListener
 						}
 						turnDisplay.setText("Turn P" + Integer.toString(player));
 					}
-					else playAgain(winner, player);;
+					else playAgain(winner, player);
 
 				}
 				else
@@ -261,7 +261,7 @@ public class TicTacToe extends JPanel implements ActionListener
 	}
 	private void playAgain(boolean winner,int bName)
 	{
-		String msg = null;
+		String msg;
 		if(winner) 
 		{
 			sp.playSound(3);
@@ -303,8 +303,8 @@ public class TicTacToe extends JPanel implements ActionListener
 		JOptionPane.showOptionDialog(null,
 		    helpMsg,
 		    "Status",
-		    JOptionPane.OK_OPTION,
-		    0, new ImageIcon(this.getClass().getResource("help.png")), options,null);
+		    JOptionPane.DEFAULT_OPTION,
+		    JOptionPane.INFORMATION_MESSAGE, new ImageIcon(this.getClass().getResource("help.png")), options,null);
 	}
 
 }

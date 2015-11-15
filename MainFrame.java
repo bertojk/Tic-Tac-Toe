@@ -9,6 +9,7 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.SwingConstants;
+import javax.swing.WindowConstants;
 
 public class MainFrame extends JFrame implements ActionListener
 {
@@ -48,11 +49,11 @@ public class MainFrame extends JFrame implements ActionListener
 		setSize(800, 700);
 		setResizable(false);
 		setLocationRelativeTo(null); 
-		setDefaultCloseOperation(EXIT_ON_CLOSE);
+		setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
 		setLayout(new CardLayout());
 		sp = new SoundPlayer();
         setting = new Setting();
-		font = new Font("Brittanic Bold", Font.HANGING_BASELINE, 20);
+		font = new Font("Brittanic Bold", Font.PLAIN, 20);
 
 
 		// 1. CREATE MENU PANEL
@@ -154,7 +155,6 @@ public class MainFrame extends JFrame implements ActionListener
 		// 2.5. ADD GAME SETUP PANEL TO MAIN FRAME
 		add(gameSetup);
 		gameSetup.setVisible(false);
-
 		setVisible(true);
 	}
 
